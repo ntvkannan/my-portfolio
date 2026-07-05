@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kannan T | UX/UI Designer & Developer Portfolio</title>
+    <meta name="description" content="Portfolio of Kannan T, an experienced UX/UI Designer & Developer specialized in creating beautiful, user-centered digital experiences.">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    
+    <style>
+        /* SCSS / Bootstrap Token Overrides */
+        :root {
+            --bs-primary: #0d6efd;
+            --bs-primary-hover: #0b5ed7;
+            --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 70px;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        /* Sticky Navigation & Active States */
+        .navbar {
+            backdrop-filter: blur(10px);
+            background-color: rgba(var(--bs-body-bg-rgb), 0.85) !important;
+            border-bottom: 1px solid rgba(var(--bs-emphasis-color-rgb), 0.1);
+            transition: var(--transition-smooth);
+        }
+        
+        .navbar-nav .nav-link.active {
+            color: var(--bs-primary) !important;
+            font-weight: 600;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            background: radial-gradient(circle at 90% 10%, rgba(13, 110, 253, 0.1), transparent 40%);
+        }
+
+        /* Custom Project Card & Image Gallery Hover Effects */
+        .project-card {
+            overflow: hidden;
+            border: 1px solid rgba(var(--bs-emphasis-color-rgb), 0.1);
+            transition: var(--transition-smooth);
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+
+        .gallery-img {
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+
+        .gallery-img:hover {
+            transform: scale(1.03);
+            filter: brightness(0.9);
+        }
+
+        /* Design System Token Chips */
+        .token-chip {
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            border: 1px solid rgba(var(--bs-emphasis-color-rgb), 0.15);
+        }
+
+        /* Scroll Animations Utility class */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Theme Toggle Icon Transition */
+        #themeToggle i {
+            transition: transform 0.5s ease;
+        }
+        #themeToggle:hover i {
+            transform: rotate(40deg);
+        }
+    </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="80">
+
+    <nav id="mainNav" class="navbar navbar-expand-lg sticky-top navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-primary" href="#hero">KANNAN.T</a>
+            <button class="navbar-expand-lg navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#process">Process</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#design-system">System</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item ms-lg-3">
+                        <button class="btn btn-link text-body p-2" id="themeToggle" aria-label="Toggle dark/light mode">
+                            <i class="bi bi-moon-stars-fill"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header id="hero" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center flex-column-reverse flex-md-row">
+                <div class="col-md-7 text-center text-md-start">
+                    <span class="badge bg-primary-subtle text-primary mb-3 px-3 py-2 rounded-pill fw-semibold">Available for Opportunities</span>
+                    <h1 class="display-3 fw-bold mb-3">Hi, I'm Kannan T</h1>
+                    <p class="lead text-body-secondary mb-4">UX/UI Designer & Developer bridge building seamless digital experiences. Specializing in converting design frameworks into pixel-perfect web systems.</p>
+                    <div class="d-grid d-sm-flex gap-3 justify-content-center justify-content-md-start">
+                        <a href="#projects" class="btn btn-primary btn-lg px-4 gap-3">View Portfolio</a>
+                        <a href="#contact" class="btn btn-outline-secondary btn-lg px-4">Let's Connect</a>
+                    </div>
+                </div>
+                <div class="col-md-5 text-center mb-4 mb-md-0">
+                    <div class="position-relative d-inline-block">
+                        <div class="bg-primary rounded-circle opacity-10 position-absolute start-0 top-0 w-100 h-100 blur-lg"></div>
+                        <i class="bi bi-laptop text-primary display-1 animate__animated animate__pulse animate__infinite" style="font-size: 10rem;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="about" class="py-5 section-padding bg-body-tertiary">
+        <div class="container reveal">
+            <div class="row justify-content-center text-center mb-5">
+                <div class="col-lg-6">
+                    <h2 class="fw-bold">About Me</h2>
+                    <hr class="w-25 mx-auto text-primary border-3">
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-md-6 mb-4 mb-md-0">
+                    <p class="fs-5">I am a multidisciplinary **UX/UI Designer & Developer** with a decade-long track record of crafting user experiences, graphic elements, and structured web environments.</p>
+                    <p class="text-body-secondary">My core capability lies at the intersection of aesthetic design strategy and rigorous UI engineering. I synthesize design concepts into working component systems using robust front-end practices.</p>
+                </div>
+                <div class="col-md-6">
+                    <div class="card p-4 border-0 shadow-sm">
+                        <h4 class="h5 fw-bold mb-3">Quick Overview</h4>
+                        <div class="d-flex justify-content-between border-bottom py-2"><span>Location:</span> <strong class="text-body">Bangalore, India</strong></div>
+                        <div class="d-flex justify-content-between border-bottom py-2"><span>Email:</span> <strong class="text-body">ntvkannan@gmail.com</strong></div>
+                        <div class="d-flex justify-content-between py-2"><span>Experience:</span> <strong class="text-body">14+ Years Architecture & Design</strong></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="py-5">
+        <div class="container reveal">
+            <div class="row justify-content-center text-center mb-5">
+                <div class="col-lg-6">
+                    <h2 class="fw-bold">Professional Experience</h2>
+                    <hr class="w-25 mx-auto text-primary border-3">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <div class="d-flex mb-5">
+                        <div class="me-4 text-center">
+                            <span class="badge bg-primary p-2 rounded-circle"><i class="bi bi-briefcase-fill text-white"></i></span>
+                            <div class="h-100 border-start mx-auto mt-2" style="width: 2px;"></div>
+                        </div>
+                        <div>
+                            <span class="text-primary fw-bold">May 2017 – Nov 2023</span>
+                            <h4 class="h5 fw-bold mt-1">UX Designer</h4>
+                            <h5 class="h6 text-body-secondary">EntLogics Technologies Pvt. Ltd., Bangalore</h5>
+                            <p class="mt-2 text-body-secondary">Led end-to-end design lifecycles for desktop and mobile applications. Spearheaded user research sessions, context mapping, user journey paths, and interactive interface prototypes.</p>
+                        </div>
+                    </div>
+                    <div class="d-flex mb-5">
+                        <div class="me-4 text-center">
+                            <span class="badge bg-secondary p-2 rounded-circle"><i class="bi bi-code-slash text-white"></i></span>
+                            <div class="h-100 border-start mx-auto mt-2" style="width: 2px;"></div>
+                        </div>
+                        <div>
+                            <span class="text-primary fw-bold">Dec 2013 – Apr 2017</span>
+                            <h4 class="h5 fw-bold mt-1">UI Designer & Developer</h4>
+                            <h5 class="h6 text-body-secondary">EntLogics Technologies Pvt. Ltd., Bangalore</h5>
+                            <p class="mt-2 text-body-secondary">Maintained a dual role delivering high-fidelity functional mockups and direct front-end production using highly clean HTML, CSS, JavaScript framework components.</p>
+                        </div>
+                    </div>
+                    <div class="d-flex">
+                        <div class="me-4 text-center"><span class="badge bg-secondary p-2 rounded-circle"><i class="bi bi-clock-history text-white"></i></span></div>
+                        <div>
+                            <h4 class="h5 fw-bold mt-1">Prior Experience Timeline</h4>
+                            <p class="text-body-secondary mb-0">UI Developer at Centris Infotech • Graphic & Web Designer at Savithru Technologies • Digital Flat Colorist at Virgin Animation • Graphic Designer at Geetha Publishing House.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-5 bg-body-tertiary">
+        <div class="container reveal">
+            <div class="row justify-content-center text-center mb-5">
+                <div class="col-lg-6">
+                    <h2 class="fw-bold">Featured Projects</h2>
+                    <hr class="w-25 mx-auto text-primary border-3">
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 project-card shadow-sm">
+                        <div class="position-relative">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Crect width='400' height='250' fill='%236c757d'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23ffffff' font-size='24'%3EKddler App Mockup%3C/text%3E%3C/svg%3E" data-src="holder.js/400x250" class="card-img-top gallery-img lazy" alt="Kddler Platform Interface Preview" data-bs-toggle="modal" data-bs-target="#projectModal" data-project="kddler">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Kddler Childcare Platform</h5>
+                            <p class="card-text text-body-secondary small">Comprehensive childcare ecosystem management software across native and mobile web touchpoints.</p>
+                            <span class="badge bg-light text-dark border">UX Strategy</span>
+                            <span class="badge bg-light text-dark border">Mobile Design</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 project-card shadow-sm">
+                        <div class="position-relative">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Crect width='400' height='250' fill='%23495057'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23ffffff' font-size='24'%3ESwaraawali Preview%3C/text%3E%3C/svg%3E" class="card-img-top gallery-img lazy" alt="Swaraawali Music Academy Design" data-bs-toggle="modal" data-bs-target="#projectModal" data-project="swaraawali">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Swaraawali Music Academy</h5>
+                            <p class="card-text text-body-secondary small">Brand system development and interactive digital dashboard optimized for online student learning paths.</p>
+                            <span class="badge bg-light text-dark border">Identity</span>
+                            <span class="badge bg-light text-dark border">Web App</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 project-card shadow-sm">
+                        <div class="position-relative">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Crect width='400' height='250' fill='%23343a40'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23ffffff' font-size='24'%3EAce Physio System%3C/text%3E%3C/svg%3E" class="card-img-top gallery-img lazy" alt="Ace Physio & Rehab Center System Design" data-bs-toggle="modal" data-bs-target="#projectModal" data-project="ace">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Ace Rehab Platform</h5>
+                            <p class="card-text text-body-secondary small">Conceptualizing clinical data visualization dashboards and appointment optimization sequences.</p>
+                            <span class="badge bg-light text-dark border">Data Architecture</span>
+                            <span class="badge bg-light text-dark border">UI Framework</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="process" class="py-5">
+        <div class="container reveal">
+            <div class="row justify-content-center text-center mb-5">
+                <div class="col-lg-6">
+                    <h2 class="fw-bold">My Design Process</h2>
+                    <hr class="w-25 mx-auto text-primary border-3">
+                </div>
+            </div>
+            <div class="row g-4 text-center">
+                <div class="col-6 col-md-3">
+                    <div class="p-4 border rounded shadow-sm bg-body">
+                        <i class="bi bi-search display-5 text-primary mb-3 d-block"></i>
+                        <h5 class="fw-bold">1. Discover</h5>
+                        <p class="small text-body-secondary mb-0">Context studies, user mapping & objective parameters extraction.</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="p-4 border rounded shadow-sm bg-body">
+                        <i class="bi bi-bezier2 display-5 text-primary mb-3 d-block"></i>
+                        <h5 class="fw-bold">2. Wireframe</h5>
+                        <p class="small text-body-secondary mb-0">Iterative blueprints detailing informational framework layouts.</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="p-4 border rounded shadow-sm bg-body">
+                        <i class="bi bi-palette display-5 text-primary mb-3 d-block"></i>
+                        <h5 class="fw-bold">3. Design System</h5>
+                        <p class="small text-body-secondary mb-0">Assembling tokens, standardized chips, typography scaling.</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="p-4 border rounded shadow-sm bg-body">
+                        <i class="bi bi-braces display-5 text-primary mb-3 d-block"></i>
+                        <h5 class="fw-bold">4. Code Implementation</h5>
+                        <p class="small text-body-secondary mb-0">Converting high fidelity layouts directly into clean Bootstrap/JS blocks.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="design-system" class="py-5 bg-body-tertiary">
+        <div class="container reveal">
+            <div class="row justify-content-center text-center mb-5">
+                <div class="col-lg-6">
+                    <h2 class="fw-bold">Design System Base Tokens</h2>
+                    <hr class="w-25 mx-auto text-primary border-3">
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <h4 class="h5 fw-bold mb-3"><i class="bi bi-palette-fill text-primary me-2"></i>Color Design Palette</h4>
+                    <div class="d-flex flex-wrap gap-2 mb-4">
+                        <div class="token-chip bg-primary text-white"><span>Primary: #0d6efd</span></div>
+                        <div class="token-chip text-body bg-body-secondary"><span>Neutral Light: #f8f9fa</span></div>
+                        <div class="token-chip bg-dark text-white"><span>Neutral Dark: #212529</span></div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h4 class="h5 fw-bold mb-3"><i class="bi bi-type me-2 text-primary"></i>Typography Tokens</h4>
+                    <p class="mb-1 text-body-secondary small">System UI Stack / Inter Accent</p>
+                    <div class="display-6 fw-bold text-body">Header Token (Display-6)</div>
+                    <div class="body-text text-body-secondary mt-1">Standard Body Interface Token - Scale 1rem</div>
+                </div>
+            </div>
+
+            <div class="row mt-5 pt-4 border-top">
+                <div class="col-12">
+                    <h3 class="h4 fw-bold mb-4 text-center text-md-start"><i class="bi bi-box-seam-fill text-primary me-2"></i>Reusable UI Component Library</h3>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="border p-3 rounded bg-body">
+                        <label class="form-label small fw-bold">Design System Dynamic Chip</label>
+                        <div class="d-flex gap-2">
+                            <span class="badge rounded-pill bg-primary-subtle text-primary">Active Token</span>
+                            <span class="badge rounded-pill bg-danger-subtle text-danger">Alert State</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="border p-3 rounded bg-body">
+                        <label class="form-label small fw-bold">Micro-interaction Switch State</label>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" role="switch" id="sampleSwitch" checked>
+                            <label class="form-check-label small text-body-secondary" for="sampleSwitch">Interactive Trigger Option</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="border p-3 rounded bg-body">
+                        <label class="form-label small fw-bold">Action Component Trigger</label>
+                        <button type="button" class="btn btn-primary btn-sm w-100 shadow-sm">Execute Call-to-Action</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="py-5">
+        <div class="container reveal">
+            <div class="row justify-content-center text-center mb-5">
+                <div class="col-lg-6">
+                    <h2 class="fw-bold">Technical Skills</h2>
+                    <hr class="w-25 mx-auto text-primary border-3">
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <h4 class="h5 fw-bold mb-3"><i class="bi bi-vector-pen text-primary me-2"></i>UX / UI Design Stack</h4>
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between mb-1"><span class="small text-body-secondary">Figma / Adobe XD</span></div>
+                        <div class="progress" style="height: 6px;"><div class="progress-bar bg-primary" role="progressbar" style="width: 95%" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div></div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between mb-1"><span class="small text-body-secondary">Adobe Illustrator & Photoshop</span></div>
+                        <div class="progress" style="height: 6px;"><div class="progress-bar bg-primary" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div></div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between mb-1"><span class="small text-body-secondary">Wireframing & User Flows</span></div>
+                        <div class="progress" style="height: 6px;"><div class="progress-bar bg-primary" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div></div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h4 class="h5 fw-bold mb-3"><i class="bi bi-code-square text-primary me-2"></i>UI Code & Engineering Stack</h4>
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between mb-1"><span class="small text-body-secondary">HTML5 / CSS3 / SCSS Tokens</span></div>
+                        <div class="progress" style="height: 6px;"><div class="progress-bar bg-success" role="progressbar" style="width: 95%" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div></div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between mb-1"><span class="small text-body-secondary">JavaScript / jQuery / React JS Basics</span></div>
+                        <div class="progress" style="height: 6px;"><div class="progress-bar bg-success" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div></div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between mb-1"><span class="small text-body-secondary">Bootstrap & Responsive Systems</span></div>
+                        <div class="progress" style="height: 6px;"><div class="progress-bar bg-success" role="progressbar" style="width: 95%" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-5 bg-body-tertiary">
+        <div class="container reveal">
+            <div class="row justify-content-center text-center mb-5">
+                <div class="col-lg-6">
+                    <h2 class="fw-bold">Get In Touch</h2>
+                    <hr class="w-25 mx-auto text-primary border-3">
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-8 col-lg-6">
+                    <form id="contactForm" class="needs-validation" novalidate>
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Full Name</label>
+                            <input type="text" class="form-index form-control" id="name" required placeholder="John Doe">
+                            <div class="invalid-feedback">Please enter your name.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email address</label>
+                            <input type="email" class="form-index form-control" id="email" required placeholder="name@example.com">
+                            <div class="invalid-feedback">Please enter a valid email.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Project Details / Message</label>
+                            <textarea class="form-index form-control" id="message" rows="4" required placeholder="Let's build something..."></textarea>
+                            <div class="invalid-feedback">Please include a short message.</div>
+                        </div>
+                        <button class="btn btn-primary w-100 btn-lg shadow-sm" type="submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-4 border-top bg-body">
+        <div class="container text-center text-md-between d-md-flex align-items-center">
+            <p class="mb-2 mb-md-0 text-body-secondary small">&copy; 2026 Kannan T. Built clean using Bootstrap Framework tokens.</p>
+            <div class="d-flex gap-3 justify-content-center">
+                <a href="mailto:ntvkannan@gmail.com" class="text-body-secondary fs-5" aria-label="Email Address Contact Link"><i class="bi bi-envelope-at-fill"></i></a>
+                <a href="https://github.com" target="_blank" rel="noreferrer" class="text-body-secondary fs-5" aria-label="GitHub Repository Profile"><i class="bi bi-github"></i></a>
+                <a href="https://linkedin.com" target="_blank" rel="noreferrer" class="text-body-secondary fs-5" aria-label="LinkedIn Professional Network Profile"><i class="bi bi-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal fade" id="projectModal" tabindex="-1" aria-labelledby="projectModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold" id="projectModalLabel">Project Information</h5>
+                    <button type="button" class="btn-close" data-bs-submit="modal" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="modalContentTarget">
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Theme Toggle Controller (Light / Dark Mode Engine)
+            const themeToggle = document.getElementById("themeToggle");
+            const htmlNode = document.documentElement;
+            
+            themeToggle.addEventListener("click", () => {
+                const updatedTheme = htmlNode.getAttribute("data-bs-theme") === "dark" ? "light" : "dark";
+                htmlNode.setAttribute("data-bs-theme", updatedTheme);
+                
+                const icon = themeToggle.querySelector("i");
+                if(updatedTheme === "dark") {
+                    icon.className = "bi bi-moon-stars-fill";
+                } else {
+                    icon.className = "bi bi-sun-fill";
+                }
+            });
+
+            // Lazy Loading Images Strategy via IntersectionObserver API
+            const lazyImages = document.querySelectorAll('img.lazy');
+            if ("IntersectionObserver" in window) {
+                const imageObserver = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const image = entry.target;
+                            if(image.dataset.src) {
+                                image.src = image.dataset.src;
+                            }
+                            image.classList.remove("lazy");
+                            imageObserver.unobserve(image);
+                        }
+                    });
+                });
+                lazyImages.forEach(image => imageObserver.observe(image));
+            }
+
+            // Scroll Animation Reveal Engine
+            const sectionsToReveal = document.querySelectorAll('.reveal');
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if(entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, { threshold: 0.1 });
+            sectionsToReveal.forEach(section => revealObserver.observe(section));
+
+            // Dynamic Content Generation Array for Modals
+            const projectData = {
+                kddler: {
+                    title: "Kddler Childcare Platform Architecture",
+                    body: "<strong>Scope:</strong> The Complete Childcare Management System.<br><br>Features multi-tier system access handling school administration tasks, parent portal apps for instant event syncing, automated classroom activity logs, attendance metrics generation, and structural billing interfaces."
+                },
+                swaraawali: {
+                    title: "Swaraawali Music Academy UX Setup",
+                    body: "<strong>Scope:</strong> Educational Experience and Layout branding.<br><br>Crafted user engagement architecture optimized specifically for remote learning paths, digital dashboards for assignment submission tracking, and streamlined brand asset uniformity."
+                },
+                ace: {
+                    title: "Ace Physio and Rehab Dashboard",
+                    body: "<strong>Scope:</strong> Functional Patient Metrics & Progress Layouts.<br><br>Conceptualized clean information layout patterns focusing on data density constraints and rapid medical care documentation routines."
+                }
+            };
+
+            // Project Modal Injection Hook Engine
+            const targetModal = document.getElementById('projectModal');
+            targetModal.addEventListener('show.bs.modal', (event) => {
+                const triggerSource = event.relatedTarget;
+                const targetingKey = triggerSource.getAttribute('data-project');
+                const matchedDetails = projectData[targetingKey];
+                
+                if(matchedDetails) {
+                    document.getElementById('projectModalLabel').innerText = matchedDetails.title;
+                    document.getElementById('modalContentTarget').innerHTML = matchedDetails.body;
+                }
+            });
+
+            // Standard Bootstrap Form Client Validation Interceptor
+            const clientForm = document.getElementById('contactForm');
+            clientForm.addEventListener('submit', (event) => {
+                if (!clientForm.checkValidity()) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                } else {
+                    event.preventDefault();
+                    alert('Success! Message transmitted securely (Simulated execution).');
+                    clientForm.reset();
+                    clientForm.classList.remove('was-validated');
+                }
+                clientForm.classList.add('was-validated');
+            }, false);
+        });
+    </script>
+</body>
+</html>
